@@ -27,6 +27,7 @@ import (
 	"crypto/rand"
 	"crypto/subtle"
 	"errors"
+	"fmt"
 	"hash"
 	"io"
 	"math"
@@ -582,6 +583,7 @@ func DecryptOAEP(hash hash.Hash, random io.Reader, priv *PrivateKey, ciphertext 
 	if err != nil {
 		return nil, err
 	}
+	fmt.Println("decrypted")
 
 	hash.Write(label)
 	lHash := hash.Sum(nil)
